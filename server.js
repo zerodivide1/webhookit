@@ -28,10 +28,10 @@ var mongo_hq = url.parse(process.env.MONGOHQ_URL);
 console.log(mongo_hq.pathname);
 console.log(mongo_hq.hostname);
 console.log(mongo_hq.port);
-console.log(mongo_hq.pathname.replace('//',''));
+console.log(mongo_hq.pathname.replace('/',''));
 
 
-app.db = new Db(mongo_hq.pathname.replace('//',''), 
+app.db = new Db(mongo_hq.pathname.replace('/',''), 
 				new Server(mongo_hq.hostname, mongo_hq.port, app.config.database.options)
 				//new Server(app.config.database.host, app.config.database.port, app.config.database.options)
 			);

@@ -12,6 +12,7 @@ var express = require('express'),
 	Server = require('mongodb').Server,
 	connect = require('connect'),
 	mongoStore = require('connect-mongodb');
+	url = require('url');
 
 // express server
 var app = express.createServer();

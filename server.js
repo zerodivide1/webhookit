@@ -157,7 +157,11 @@ app.db.open(function(err, db_conn) {
 			} );
 
 			// start the server
-			app.listen(app.config.server.port, app.config.server.ip);
+			var server_port = process.env.YOUR_PORT || process.env.PORT || 80;
+			var server_host = process.env.YOUR_HOST || '0.0.0.0';
+			app.listen(server_port, server_host, function() {
+    			console.log('Listening on port %d', server_port);
+			});
 			
 			console.log("App started in '"+app.set('env')+"' environment !\n" +
 							"Listening on http://"+app.config.server.host+":"+app.config.server.port);

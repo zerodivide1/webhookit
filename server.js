@@ -22,20 +22,20 @@ app.root = __dirname;
 app.config = require(app.root + '/config/' + app.set('env') + '.js');
 
 // Database Connect to mongo
-console.log(process.env.MONGOHQ_URL);
+console.log('MONGOHQ_URL - ' + process.env.MONGOHQ_URL);
 var mongo_hq = url.parse(process.env.MONGOHQ_URL);
 
-console.log(mongo_hq.pathname);
-console.log(mongo_hq.hostname);
-console.log(mongo_hq.port);
-console.log(mongo_hq.pathname.replace('/',''));
-console.log(mongo_hq.auth);
+console.log('pathname - ' + mongo_hq.pathname);
+console.log('pathname1 - ' + mongo_hq.pathname.replace('/',''));
+console.log('hostname - ' + mongo_hq.hostname);
+console.log('port - ' + mongo_hq.port);
+console.log('auth - ' + mongo_hq.auth);
 var mongo_auth = mongo_hq.auth.split(":").map(function (val) { return +val + 1; });
+console.log('mongo_auth - ' + mongo_auth);
 var mongo_db_username = mongo_auth[0];
+console.log('mongo_db_username - ' + mongo_db_username);
 var mongo_db_password = mongo_auth[1];
-
-console.log(mongo_db_username);
-console.log(mongo_db_password);
+console.log('mongo_db_password - ' + mongo_db_password);
 
 app.db = new Db(mongo_hq.pathname.replace('/',''), 
 				new Server(mongo_hq.hostname, mongo_hq.port, app.config.database.options)

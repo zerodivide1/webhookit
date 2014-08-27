@@ -30,7 +30,7 @@ console.log(mongo_hq.hostname);
 console.log(mongo_hq.port);
 console.log(mongo_hq.pathname.replace('/',''));
 console.log(mongo_hq.auth);
-var mongo_auth = mongo_hq.auth.split(":");
+var mongo_auth = mongo_hq.auth.split(":").map(function (val) { return +val + 1; });
 var mongo_db_username = mongo_auth[0];
 var mongo_db_password = mongo_auth[1];
 

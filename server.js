@@ -21,9 +21,9 @@ app.root = __dirname;
 app.config = require(app.root + '/config/' + app.set('env') + '.js');
 
 // Database Connect to mongo
-app.db = new Db(app.config.database.db, 
-				new Server(app.config.database.host, app.config.database.port, app.config.database.options)
-			);
+app.db = new Db(app.config.database.db, new Server(process.env.MONGOHQ_URL));
+				//new Server(app.config.database.host, app.config.database.port, app.config.database.options)
+			//);
 console.log("Connecting to MongoDB...");
 
 app.db.open(function(err) {

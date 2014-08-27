@@ -25,7 +25,7 @@ app.config = require(app.root + '/config/' + app.set('env') + '.js');
 console.log('MONGOHQ_URL - ' + process.env.MONGOHQ_URL);
 var mongo_hq = url.parse(process.env.MONGOHQ_URL || 'mongo://localhost:27017/testdb');
 
-var mongo_auth = mongo_hq.auth.split(":") || '';
+var mongo_auth = mongo_hq.auth ? mongo_hq.auth.split(":") : '';
 var mongo_db_username = mongo_auth[0] || '';
 var mongo_db_password = mongo_auth[1] || '';
 

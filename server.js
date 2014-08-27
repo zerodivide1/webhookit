@@ -21,6 +21,7 @@ app.root = __dirname;
 app.config = require(app.root + '/config/' + app.set('env') + '.js');
 
 // Database Connect to mongo
+console.log(process.env.MONGOHQ_URL);
 app.db = new Db(app.config.database.db, new Server(process.env.MONGOHQ_URL));
 				//new Server(app.config.database.host, app.config.database.port, app.config.database.options)
 			//);

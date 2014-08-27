@@ -30,7 +30,7 @@ console.log('pathname1 - ' + mongo_hq.pathname.replace('/',''));
 console.log('hostname - ' + mongo_hq.hostname);
 console.log('port - ' + mongo_hq.port);
 console.log('auth - ' + mongo_hq.auth);
-var mongo_auth = mongo_hq.auth.split(":").map(function (val) { return +val + 1; });
+var mongo_auth = mongo_hq.auth.split(":");
 console.log('mongo_auth - ' + mongo_auth);
 var mongo_db_username = mongo_auth[0];
 console.log('mongo_db_username - ' + mongo_db_username);

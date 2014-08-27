@@ -22,9 +22,16 @@ app.config = require(app.root + '/config/' + app.set('env') + '.js');
 
 // Database Connect to mongo
 console.log(process.env.MONGOHQ_URL);
-app.db = new Db(app.config.database.db, new Server(process.env.MONGOHQ_URL));
+var mongo_hq = url.parse(process.env.MONGOHQ_URL);
+
+console.log(mongo_hq.pathname);
+console.log(mongo_hq.hostname);
+console.log(mongo_hq.port);
+
+app.db = new Db(mongo_hq.pathname, 
+				new Server(mongo_hq.hostname, mongo_hq.port, app.config.database.options)
 				//new Server(app.config.database.host, app.config.database.port, app.config.database.options)
-			//);
+			);
 console.log("Connecting to MongoDB...");
 
 app.db.open(function(err) {

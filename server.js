@@ -22,12 +22,15 @@ app.root = __dirname;
 app.config = require(app.root + '/config/' + app.set('env') + '.js');
 
 // Database Connect to mongo
-console.log('MONGOHQ_URL - ' + process.env.MONGOHQ_URL);
-var mongo_hq = url.parse(process.env.MONGOHQ_URL || 'mongo://localhost:27017/testdb');
 
+var mongo_hq = url.parse(process.env.MONGOHQ_URL || app.config.database.url);
+console.log('mongo_hq - ' + mongo_hq);
 var mongo_auth = mongo_hq.auth ? mongo_hq.auth.split(":") : '';
+console.log('mongo_auth - ' + mongo_auth );
 var mongo_db_username = mongo_auth[0] || '';
+console.log('mongo_db_username - ' + mongo_db_username);
 var mongo_db_password = mongo_auth[1] || '';
+console.log('mongo_db_password - ' + mongo_db_password);
 
 app.db = new Db(mongo_hq.pathname.replace('/',''), 
 				new Server(mongo_hq.hostname, mongo_hq.port, app.config.database.options)
@@ -149,8 +152,8 @@ app.db.open(function(err, db_conn) {
 			} );
 
 			// start the server
-			var server_port = process.env.DEFAULT_PORT || process.env.PORT || 80;
-			var server_host = process.env.DEFAULT_HOST || '0.0.0.0';
+			var server_port = process.env.DEFAULT_PORT || process.env.PORT || app.config.server.port;
+			var server_host = process.env.DEFAULT_HOST || process.env.HOST || app.config.server.host;
 			app.listen(server_port, server_host, function() {
     			console.log('Listening on port %d', server_port);
 			});

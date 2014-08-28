@@ -2,9 +2,7 @@ module.exports = {
 	
 	// mongoDB access
 	database: {
-		host: 'localhost',
-		port: 27017,
-		db: 'testmongo',
+		url : "mongo://testing:testing@localhost:27017/testing",
 		options: {
 			auto_reconnect: true
 		}

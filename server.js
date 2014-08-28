@@ -153,7 +153,7 @@ app.db.open(function(err, db_conn) {
 
 			// start the server
 			var server_port = process.env.DEFAULT_PORT || process.env.PORT || app.config.server.port;
-			var server_host = process.env.DEFAULT_HOST || process.env.HOST || app.config.server.host;
+			var server_host = process.env.DEFAULT_HOST || app.config.server.host;
 			app.listen(server_port, server_host, function() {
     			console.log('Listening on port %d', server_port);
 			});

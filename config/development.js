@@ -2,7 +2,7 @@ module.exports = {
 	
 	// mongoDB access
 	database: {
-		url : "mongo://testing:testing@localhost:27017/testing",
+		url : "mongo://devuser:devuser@mongo:27017/webhookit-dev",
 		options: {
 			auto_reconnect: true
 		}
@@ -10,7 +10,7 @@ module.exports = {
 
 	// Bind port/IP
 	server: {
-		port: 8124,
+		port: 80,
 		host: "0.0.0.0"
 	},
 	

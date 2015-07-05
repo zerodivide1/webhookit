@@ -45,12 +45,12 @@ app.db.open(function(err, db_conn) {
 		console.log(err);
 		return;
 	}
-	
-	db_conn.authenticate(mongo_db_username,mongo_db_password,{},function(err,success){
 
-		if (err) {
-            console.warn("MONGO ERROR: unauthorized "+ err.message);
-        } else {
+	//db_conn.authenticate(mongo_db_username,mongo_db_password,{},function(err,success){
+
+		//if (err) {
+    //        console.warn("MONGO ERROR: unauthorized "+ err.message);
+    //    } else {
 
 			// Middleware setup
 			app.use(express.logger());				// Enable request logging	
@@ -166,7 +166,7 @@ app.db.open(function(err, db_conn) {
 				console.log('Caught exception: ' + err);
 				console.log(err.stack);
 			});
-		}
-			
-	});
+		//}
+
+	//});
 });

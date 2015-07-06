@@ -2,7 +2,7 @@ module.exports = {
 	
 	// mongoDB access
 	database: {
-		url : "mongo://devuser:devuser@mongo:27017/webhookit-dev",
+		url : "mongo://mongo:27017/webhookit-dev",
 		options: {
 			auto_reconnect: true
 		}

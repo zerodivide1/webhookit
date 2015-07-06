@@ -14,7 +14,7 @@
     "directories": {
         "lib" : "lib"
     },
-    "bin" : { 
+    "bin" : {
 			"webhookit" : "./server.js"
 		},
     "dependencies": {
@@ -28,7 +28,6 @@
 				"xml2js-expat": ">=0.2.0",
 				"webhookit-comment": ">=0.0.2",
 				"webhookit-ejs": ">=0.0.2",
-				"webhookit-http": ">=0.0.4",
 				"webhookit-jsonpath": ">=0.0.2",
 				"webhookit-objectbuilder": ">=0.0.2",
 				"webhookit-xml2js": ">=0.0.1",

@@ -1,0 +1,14 @@
+mongo:
+  image: mongo
+  volumes:
+    - ../webhookit-data:/data/db
+webhookit:
+  build: .
+  ports:
+    - "8081:80"
+  volumes:
+    - ./config:/webhookit/config
+  environment:
+    - EXPRESS_ENV=development
+  links:
+    - mongo
